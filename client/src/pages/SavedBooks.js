@@ -13,6 +13,9 @@ const SavedBooks = () => {
   // Use GraphQL query to get user data
   const { loading, data } = useQuery(GET_ME);
 
+  // Use GraphQL mutation to remove a book to user's account
+  const [removeBook] = useMutation(REMOVE_BOOK);
+
   // Check for user
   const userData = data?.me || [];
 
@@ -22,9 +25,6 @@ const SavedBooks = () => {
       <h3>Error: You must be logged in to view this page</h3>
     )
   }
-
-  // Use GraphQL mutation to remove a book to user's account
-  const [removeBook] = useMutation(REMOVE_BOOK);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {

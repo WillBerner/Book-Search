@@ -23,6 +23,13 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
+
+
+// Hook up Apollo Server to use Express
+server.start().then(() => {
+  server.applyMiddleware({ app });
+});
+
 // Boilerplate
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,8 +39,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-// Hook up Apollo Server to use Express
-server.applyMiddleware({ app });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Once database connection has been established, start the server
 db.once('open', () => {

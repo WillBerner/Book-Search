@@ -39,6 +39,8 @@ const resolvers = {
                 // Try to add the user to the database
                 const user = await User.create(args)
 
+                console.log(user);
+
                 // If a user is successfully registered, go ahead and log them in
                 const token = signToken(user);
 
@@ -80,7 +82,10 @@ const resolvers = {
         },
 
         // Save a book to the user's account
-        savedBook: async (parent, args, context) => {
+        saveBook: async (parent, args, context) => {
+
+            console.log(args);
+            console.log(context);
 
             // Use context to determine whether user is authenticated
             if (context.user) {

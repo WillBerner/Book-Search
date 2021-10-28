@@ -20,9 +20,10 @@ const apolloClient = new ApolloClient({
     // Set the context of the user with their retreived JWT for backend
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
+        authorization: token ? `Bearer ${token}` : '',
+      },
     });
+
   },
 
   uri: '/graphql'
