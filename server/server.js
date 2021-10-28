@@ -16,7 +16,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Apollo Server using auth middleware
+// Set up Apollo Server using auth middleware as context
 const server = new ApolloServer({
   typeDefs,
   resolvers,
