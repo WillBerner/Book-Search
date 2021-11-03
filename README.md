@@ -11,7 +11,7 @@
 
 ## Description:
 
-Book Search is a MERN stack book search engine using Google's Books API. Users can register an account, login, and are then able to both save an delete certain books from their account. Book search implements GraphQL instead of a more traditional RESTful API for its CRUD functionality. All authorization and authenication used in the application was handled with JSON Web Tokens (JWTs).
+Book Search is a MERN stack book search engine using Google's Books API. Users can register an account, log in, and are then able to both save and delete certain books from their account. Book search implements GraphQL instead of a more traditional RESTful API for its CRUD functionality. All authorization and authenication used in the application was handled with JSON Web Tokens (JWTs).
 
 ## Usage:
 
